@@ -135,17 +135,13 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 /// 2ci versiya Chain of responsibility istifade ederek
 //#region MyRegion
 
-//StringProcessorChain processorChain = new StringProcessorChain();
-//var input = "salam";
-//try
-//{
-//    var output = processorChain.Process(input);
-//    Console.WriteLine("Output: " + output);
-//}
-//catch (StringProcessException e)
-//{
-//    Console.WriteLine("An error occurred: " + e.Message);
-//}
+//string input = "Hello";
+
+//IStringProcessor processorChain = new AppendProcessor(new BAppendProcessor(new AddCProcessor(null)));
+
+//string result = processorChain.ProcessString(input);
+
+//Console.WriteLine("Output: " + result);
 //#endregion
 
 #region MyRegion

@@ -1,19 +1,24 @@
 ﻿using System;
 namespace SdfElmar
 {
-	public class BAppendProcessor : IStringProcessor
+	public class BAppendProcessor : BaseStringProcessor
     {
-        private IStringProcessor _nextProcessor;
-
-        public string Process(string input)
+        public BAppendProcessor(IStringProcessor successor) : base(successor)
         {
-            return input + "B";
         }
 
-        public void SetNextProcessor(IStringProcessor nextProcessor)
+        public override string ProcessString(string input)
         {
-            _nextProcessor = nextProcessor;
+            try
+            {
+                return base.ProcessString(input + "B");
+            }
+            catch (IOException e)
+            {
+                return input.Replace("B", "");
+            }
         }
+
     }
 }
 

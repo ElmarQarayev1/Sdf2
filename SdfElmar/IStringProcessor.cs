@@ -3,8 +3,7 @@ namespace SdfElmar
 {
 	public interface IStringProcessor
 	{
-        string Process(string input);
-        void SetNextProcessor(IStringProcessor nextProcessor);
+        string ProcessString(string input);
     }
 }
 

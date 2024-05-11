@@ -1,9 +1,9 @@
 ﻿using System;
 namespace SdfElmar
 {
-	public class AppendProcessor : BaseStringProcessor
+    public class AddCProcessor : BaseStringProcessor
     {
-         public AppendProcessor(IStringProcessor successor) : base(successor)
+        public AddCProcessor(IStringProcessor successor) : base(successor)
         {
         }
 
@@ -11,11 +11,11 @@ namespace SdfElmar
         {
             try
             {
-                return base.ProcessString(input + "A");
+                return base.ProcessString(input + "C");
             }
             catch (IOException e)
             {
-                return input.Replace("A", "");
+                return input.Replace("C", "");
             }
         }
     }
