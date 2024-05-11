@@ -1,0 +1,15 @@
+Person sinifindan bir nümunə yaradıldığında, bu nümunə heap yaddaşında yaradılır. person referansı stack yaddaşında saxlanılır və yaradılan nümunənin referansını saxlayir
+
+main metodunda person referansı ilə test metodu çağırıldığında, person referansı stack yaddaşında test metoduna ötürülür.
+
+test metodunda edilənlər:
+
+person.setAge(25) ilə person nümunəsinin yaş dəyəri 25 olaraq yenilənir. Bu əməl heap yaddaşında ələqəli nümunəni dəyişdirir.
+person = new Person("Test", 23); ilə yeni bir Person nümunəsi yaradılır və bu yeni nümunənin referansı person dəyişəninə təyin edilir. Yəni person artıq heap yaddaşında bu yeni nümunəni göstərir. Əvvəlki nümunənin referansı silinir və silinmək üçün qarbage collector tərəfindən işarələnir. Bu əməl heap yaddaşında yeni bir nümunə yaradır və person referansı bu yeni nümunəni göstərir.
+person.setName("Test2"); ilə person nümunəsinin adı "Test2" olaraq yenilənir. Bu əməl heap yaddaşında əlaqəli nümunəni dəyişdirir.
+return person.age ilə metodun qaytarış dəyəri kimi person nümunəsinin yaş dəyəri olan 23 qaytarılır.
+main metodunda System.out.println(test(person)) sətri ilə test metodu işə salınır və qaytarılan dəyər ekrana yazdırılır.
+
+System.out.println(person) sətri ilə person nümunəsi ekrana yazdırılır. Bu nümunə artıq test metodunda yaradılan və adı "Test2" olan 23 yaşındakı nümunəni göstərir. Bu əməl heap yaddaşında əlaqəli nümunəni dəyişdirmir, sadəcə o nümunənin içindəkiləri göstərir.
+
+Nəticə olaraq, test metodunun dəyişənlər üzərində dəyişikliklər etdi, lakin bu dəyişikliklər main metodunda görünmür, çünki test metodunda person referansı yenidən təyin edilir və bu yeni referans main metodundakı person referansı ilə əlaqələndirilmir.
